@@ -1171,7 +1171,7 @@ class Speedtest(object):
             client = get_attributes_by_tag_name(root, 'client')
 
         ignore_servers = list(
-            map(int, server_config['ignoreids'].split(','))
+            map(int, [server_no for server_no in server_config['ignoreids'].split(',') if server_no])
         )
 
         ratio = int(upload['ratio'])
